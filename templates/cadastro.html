@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastrar Equipamento</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/cadastro.css">
+</head>
+<body>
+  <button class="btn theme-toggle" onclick="toggleTheme()">Modo Claro</button>
+  <h1>Cadastrar Novo Equipamento</h1>
+  
+  <div class="form-container">
+    <form method="POST" action="/cadastro">
+      <div class="form-group">
+        <label for="nome">Nome do Equipamento</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="form-group">
+        <label for="ip">IP do Equipamento</label>
+        <input type="text" id="ip" name="ip" required>
+      </div>
+      <div class="form-group">
+        <label for="imagem">URL da Imagem</label>
+        <input type="text" id="imagem" name="imagem" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn" value="Cadastrar Equipamento">
+      </div>
+    </form>
+  </div>
+
+  <script src="/static/js/scripts.js"></script>
+  <script src="/static/js/cadastro.js"></script>
+</body>
+</html>

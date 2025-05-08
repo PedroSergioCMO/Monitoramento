@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciar Equipamentos</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/gerenciar.css">
+</head>
+<body>
+  <button class="btn btn-voltar" onclick="window.location.href='/'">Voltar</button>
+  <button class="btn theme-toggle" onclick="toggleTheme()">Modo Claro</button>
+  <h1>Gerenciar Equipamentos</h1>
+
+  <div class="input-group">
+    <input id="nome" placeholder="Nome do Equipamento">
+    <input id="ip" placeholder="IP">
+    <input id="imagem" placeholder="URL da Imagem">
+    <button class="btn" onclick="adicionar()">Cadastrar</button>
+    <button class="btn" onclick="carregar()">Atualizar Lista</button>
+  </div>
+
+  <div id="lista"></div>
+
+  <!-- Modal de Edição -->
+  <div id="modalEditar" class="modal">
+    <div class="modal-content">
+      <h3 class="modal-title">Editar Equipamento</h3>
+      <input type="hidden" id="ip-original">
+      <div class="input-group">
+        <input id="editar-nome" placeholder="Nome">
+      </div>
+      <div class="input-group">
+        <input id="editar-ip" placeholder="IP">
+      </div>
+      <div class="input-group">
+        <input id="editar-imagem" placeholder="URL da Imagem">
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="fecharModal()">Cancelar</button>
+        <button class="btn" onclick="salvarEdicao()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/scripts.js"></script>
+  <script src="/static/js/gerenciar.js"></script>
+</body>
+</html>
