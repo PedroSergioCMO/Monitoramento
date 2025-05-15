@@ -60,3 +60,20 @@ body {
     top: 20px;
     right: 20px;
   }
+
+  .form-select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: all 0.2s;
+  }
+  
+  .form-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }

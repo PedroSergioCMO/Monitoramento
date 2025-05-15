@@ -2,27 +2,78 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Painel de Monitoramento</title>
+  <title>Monitor de Equipamentos</title>
   <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="stylesheet" href="/static/css/monitor.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <div class="header-container">
-    <h1 class="header-title">PAINEL DE MONITORAMENTO</h1>
-    <div class="header-actions">
-      <button class="btn btn-gerenciar" onclick="window.location.href='/gerenciar'">
-        <i class="fas fa-cog"></i> GERENCIAR
+  <div class="monitor-header">
+    <h1><i class="fas fa-network-wired"></i> Monitor de Equipamentos</h1>
+    <div class="header-controls">
+      <div class="filtro-wrapper">
+        <button id="btn-filtrar" class="btn btn-filter">
+          <i class="fas fa-filter"></i> Filtrar
+        </button>
+        <div id="filtro-dropdown" class="filtro-dropdown">
+          <div class="filtro-header">
+            <span>Filtrar por categoria</span>
+            <button class="btn-close" onclick="fecharFiltro()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="filtro-options">
+            <label class="filtro-option">
+              <input type="checkbox" value="armario" checked>
+              <i class="fas fa-box icon-armario"></i>
+              <span>Armários</span>
+            </label>
+            <label class="filtro-option">
+              <input type="checkbox" value="servidor" checked>
+              <i class="fas fa-server icon-servidor"></i>
+              <span>Servidores</span>
+            </label>
+            <label class="filtro-option">
+              <input type="checkbox" value="equipamento" checked>
+              <i class="fas fa-desktop icon-equipamento"></i>
+              <span>Equipamentos</span>
+            </label>
+            <label class="filtro-option">
+              <input type="checkbox" value="atm" checked>
+              <i class="fas fa-money-bill-wave icon-atm"></i>
+              <span>ATM's</span>
+            </label>
+            <label class="filtro-option">
+              <input type="checkbox" value="iot" checked>
+              <i class="fas fa-microchip icon-iot"></i>
+              <span>IoT</span>
+            </label>
+          </div>
+          <div class="filtro-actions">
+            <button class="btn btn-sm" onclick="aplicarFiltros()">
+              Aplicar
+            </button>
+            <button class="btn btn-sm btn-clear" onclick="limparFiltros()">
+              Limpar
+            </button>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-sm" onclick="window.location.href='/gerenciar'">
+        <i class="fas fa-cog"></i>
       </button>
-      <button class="btn theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-moon"></i> TEMA
+      <button class="btn btn-sm" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
       </button>
     </div>
   </div>
-  
-  <div class="grid" id="monitor"></div>
 
-  
+  <div id="monitor-container">
+    <div class="loading-fullscreen">
+      <i class="fas fa-circle-notch fa-spin"></i> Carregando...
+    </div>
+  </div>
+
   <script src="/static/js/scripts.js"></script>
   <script src="/static/js/monitor.js"></script>
 </body>

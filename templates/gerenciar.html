@@ -5,18 +5,35 @@
   <title>Gerenciar Equipamentos</title>
   <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="stylesheet" href="/static/css/gerenciar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <button class="btn btn-voltar" onclick="window.location.href='/'">Voltar</button>
-  <button class="btn theme-toggle" onclick="toggleTheme()">Modo Claro</button>
+  <button class="btn btn-voltar" onclick="window.location.href='/'">
+    <i class="fas fa-arrow-left"></i> Voltar
+  </button>
+  <button class="btn theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i> Tema
+  </button>
   <h1>Gerenciar Equipamentos</h1>
 
   <div class="input-group">
     <input id="nome" placeholder="Nome do Equipamento">
     <input id="ip" placeholder="IP">
     <input id="imagem" placeholder="URL da Imagem">
-    <button class="btn" onclick="adicionar()">Cadastrar</button>
-    <button class="btn" onclick="carregar()">Atualizar Lista</button>
+    <select id="categoria" class="form-select">
+      <option value="">Selecione a categoria</option>
+      <option value="armario">Armário Inteligente</option>
+      <option value="servidor">Servidores</option>
+      <option value="equipamento">Equipamentos</option>
+      <option value="atm">ATM's</option>
+      <option value="iot">IOT's</option>
+    </select>
+    <button class="btn btn-primary" onclick="adicionar()">
+      <i class="fas fa-plus"></i> Cadastrar
+    </button>
+    <button class="btn btn-secondary" onclick="carregar()">
+      <i class="fas fa-sync-alt"></i> Atualizar
+    </button>
   </div>
 
   <div id="lista"></div>
@@ -35,9 +52,22 @@
       <div class="input-group">
         <input id="editar-imagem" placeholder="URL da Imagem">
       </div>
+      <div class="input-group">
+        <select id="editar-categoria" class="form-select">
+          <option value="armario">Armário Inteligente</option>
+          <option value="servidor">Servidores</option>
+          <option value="equipamento">Equipamentos</option>
+          <option value="atm">ATM's</option>
+          <option value="iot">IOT's</option>
+        </select>
+      </div>
       <div class="modal-actions">
-        <button class="btn" onclick="fecharModal()">Cancelar</button>
-        <button class="btn" onclick="salvarEdicao()">Salvar</button>
+        <button class="btn btn-cancel" onclick="fecharModal()">
+          <i class="fas fa-times"></i> Cancelar
+        </button>
+        <button class="btn btn-save" onclick="salvarEdicao()">
+          <i class="fas fa-save"></i> Salvar
+        </button>
       </div>
     </div>
   </div>

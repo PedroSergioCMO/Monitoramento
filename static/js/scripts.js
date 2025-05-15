@@ -7,11 +7,12 @@ function toggleTheme() {
     el.classList.toggle('light-mode');
   });
   
-  // Atualizar texto do botão
+  // Atualizar texto e ícone do botão - CORREÇÃO AQUI
   const themeButtons = document.querySelectorAll('.theme-toggle');
   themeButtons.forEach(btn => {
-    btn.textContent = document.body.classList.contains('light-mode') ? '🌙 Modo Escuro' : '☀️ Modo Claro';
-    btn.setAttribute('aria-pressed', document.body.classList.contains('light-mode'));
+    const isLightMode = document.body.classList.contains('light-mode');
+    btn.innerHTML = isLightMode ? '<i class="fas fa-moon"></i> Modo Escuro' : '<i class="fas fa-sun"></i> Modo Claro';
+    btn.setAttribute('aria-pressed', isLightMode);
   });
   
   // Salvar preferência
@@ -24,8 +25,14 @@ function loadTheme() {
     document.body.classList.add('light-mode');
     const themeButtons = document.querySelectorAll('.theme-toggle');
     themeButtons.forEach(btn => {
-      btn.textContent = '🌙 Modo Escuro';
+      btn.innerHTML = '<i class="fas fa-moon"></i> Modo Escuro';
       btn.setAttribute('aria-pressed', 'true');
+    });
+  } else {
+    const themeButtons = document.querySelectorAll('.theme-toggle');
+    themeButtons.forEach(btn => {
+      btn.innerHTML = '<i class="fas fa-sun"></i> Modo Claro';
+      btn.setAttribute('aria-pressed', 'false');
     });
   }
   
